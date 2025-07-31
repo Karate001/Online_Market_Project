@@ -46,18 +46,6 @@ body.dark {
 .adresse .reseaux_sociaux a i:hover{
     color: #0a090f;
 }
-.offre-spécial .left{
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(134, 134, 201, 0.463));
-    }
-    .offre-spécial .left h2{
-        color: #ffffffbe;
-    }
-    .boxs .box{
-        color: #ffffffbe;
-    } 
-    #dark_mode{
-       color: #ffffffbe;
-    }
 }
 
 header {
@@ -283,7 +271,7 @@ nav .links a:nth-child(5){
 /* Offre spécial*/
 .offre-spécial{
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+grid-template-rows: repeat(auto-fit, minmax(500px, 1fr));
 gap: 0.5rem;
 margin-top: 5rem;
 }
@@ -309,157 +297,6 @@ margin-top: 5rem;
 .categories{
     display: flex;
     margin: 0.5rem 0;
-}
-/*Partie gauche*/
-.offre-spécial .left{
-    background: linear-gradient(rgba(134, 134, 201, 0.5), rgba(134, 134, 201, 0.463)),url(../photos/bg-ustensile4.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    max-width: 100%;
-    height: auto;
-    padding:calc(4em + 1vw) ;
-    clip-path: inset(10px 30px round 0 15%);
-}
-/*premier h2 de la partie gauche*/
-.offre-spécial .left h2:nth-child(1){
-    font-size: clamp(0.7rem, calc(1rem + 1vw), 2.5rem);
-    color: var(--text-color);
-    letter-spacing: 5px;
-}
-/*quatrième h2 de la partie gauche*/
-.offre-spécial .left h2:nth-child(4){
-    margin: 0.7rem 0;
-    letter-spacing: 3px;
-    font-size:clamp(0.7rem, calc(1rem + 2vw), 2.5rem) ;
-    background: linear-gradient(rgba(134, 134, 201, 0.463), rgba(134, 134, 201, 0.463));
-}
-/*Deuxième P de la partie gauche*/
-.offre-spécial .left  p:nth-child(2){
-    font-size: clamp(1rem, calc(0.5rem + 1vw), 1.2rem);
-}
-.offre-spécial .left  p:nth-child(5){
-    font-size: clamp(0.7rem, 2vw, 1rem);
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
-}
-#trente_dollars{
-    font-size: small;
-    position: relative;
-    top:0.5rem;
-    background: red;
-    padding: min(0.5rem, 8%);
-    border-radius: 10px;
-    color: #fff;
-    font-weight: 600;
-}
-.Attention-stock{
-    letter-spacing: 1px;
-}
-.Attention-stock span{
-    color: hsla(0, 100%, 56%, 0.626);
-    font-weight: 600;
-}
-.offre-spécial .left  a:nth-child(8){
-    background:rgba(134, 134, 201, 0.463);
-    padding: min(1rem, 8%);
-    border-radius: 8px;
-    position: relative;
-    top: 20px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    color: #fff;
-    position: relative;
-    
-}
-.offre-spécial .left  a:nth-child(8)::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.256);
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    transition: width .8s;
-}
-.offre-spécial .left  a:nth-child(8):hover::before{
-    width: 0;
-}
-/*Responsive carts avec display grid*/
-.offre-spécial .left .carts{
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit, minmax(200px, 1fr)
-    );
-    gap: min(1rem, 8%);
-    white-space: nowrap;
-    justify-content: center;
-}
-/*section cart*/
-.offre-spécial .left .carts .cart{
-    padding: min(2rem, 10%);
-    margin: 1rem;
-    border-radius: 6px;
-    transition: box-shadow .6s;
-}
-.offre-spécial .left .carts .cart:hover{
-    box-shadow: 3px 3px 8px rgb(134, 134, 201);
-}
-.offre-spécial .left .carts .cart a{
-    font-size: clamp(0.5rem,calc(2vw + 0.5rem), 1rem);
-    font-weight: 600;
-    position: relative;
-    bottom: 0.6rem;
-}
-/*Section deuxième cart*/
-.offre-spécial .left .carts .cart:nth-child(2){
-    background: linear-gradient(rgba(134, 134, 201, 0.5), rgba(134, 134, 201, 0.463)), url(../photos/bg-ustensile5.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    cursor: pointer;
-}
-/*Section première cart*/
-.offre-spécial .left .carts .cart:nth-child(1){
-    background: linear-gradient(rgba(134, 134, 201, 0.5), rgba(134, 134, 201, 0.463)), url(../photos/bg-ustensile3.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    cursor: pointer;
-}
-/*Section troisième cart*/
-.offre-spécial .left .carts .cart:nth-child(3){
-    background: linear-gradient(rgba(134, 134, 201, 0.5), rgba(134, 134, 201, 0.463)), url(../photos/bg-ustensile2.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    cursor: pointer;
-}
-.offre-spécial .left .boxs{
-    display: inline-flex;
-    gap: 1rem;
-    position:relative;
-    top: 2rem;
-    left: 0.5rem;
-}
-.offre-spécial .left .boxs .box{
-    background:rgba(0, 0, 0, 0.256);
-    padding: min(0.9rem, 8%);
-    width: 100%;
-    height: 100%;
-   border-radius: 50%;
-    
-}
-/*Section quatrième cart*/
-.offre-spécial .left .carts .cart:nth-child(4){
-    background: linear-gradient(rgba(134, 134, 201, 0.5), rgba(134, 134, 201, 0.463)), url('../images/images_categories/ustensile_de_preparation.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    cursor: pointer;
 }
 /*section-special partie droite*/
 .offre-spécial .right{
