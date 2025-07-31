@@ -1,0 +1,57 @@
+section {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 12%;
+    justify-content: center;
+    justify-items: center;
+}
+section div div{
+    display: flex;
+    gap: 4%;
+
+}
+section div button{
+    padding:min(6em, 1vw);
+    border: none;
+    border-radius: 3px;
+    background:linear-gradient(to right,rgba(127, 255, 212, 0.479),rgba(134, 134, 201, 0.491) );
+    color:var(--bg2);
+    font-weight: 550;
+    font-size: 15px;
+    margin-left: 30%;
+    width: 40%;
+    margin-right: 30%;
+    margin-top: 5%;
+}
+section div div div{
+    display: block;
+    margin-top: 5%;
+}
+section div div img{
+    width: 30%;
+    height: auto;
+    
+    margin-top: 1%;
+}
+section div div div h1{
+    margin-bottom: 15px;
+}
+section div div div p{
+    color: green;
+    font-size: 20px;
+    margin-bottom: 3%;
+}
+section div div div button{
+    padding:min(6em, 1vw);
+    border: none;
+    border-radius: 3px;
+    background:linear-gradient(to right,rgba(127, 255, 212, 0.479),rgba(134, 134, 201, 0.491) );
+    color:var(--bg2);
+    font-weight: 550;
+    font-size: 15px;
+    margin-left: 0%;
+}
+section div div div i{
+    font-size: 25px;
+}
