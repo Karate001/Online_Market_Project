@@ -10,7 +10,7 @@
     menu_icon.addEventListener("click", ()=>{
         navlinks.classList.toggle('active')
     })
-    /**compteur experience */
+    /*compteur experience 
 const counters = document.getElementsByClassName("counter");
 
 Array.from(counters).forEach(counter => {
@@ -32,7 +32,7 @@ Array.from(counters).forEach(counter => {
 
     update();
 });
-/*compteur promotion*/
+/*compteur promotion
 function getNextSunday() {
   const now = new Date();
   const day = now.getDay(); // 0 = ce dimanche
@@ -75,7 +75,7 @@ const interval = setInterval(() => {
   document.getElementById("seconde").innerText = String(secondes).padStart(2, '0'); // ✅ attention au nom
 }, 1000);
 
-
+*/
 
 
     

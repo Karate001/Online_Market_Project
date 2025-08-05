@@ -196,6 +196,46 @@ function creer_btn_commander_consulter(){
         }
 }
 
+//La fonction qui gère le champs de recherche
+search_bar = document.getElementById('search_bar');
+container_prod_cherche=document.getElementById('container_prod_cherche');
+search_bar.addEventListener('input',filtre_list_produit)
+function filtre_list_produit() {
+    load_prod(container_prod_cherche);
+    fetch("http://apiprojete-commerce-env.eba-7hmxxccm.eu-north-1.elasticbeanstalk.com/info_produit/produits")
+    .then(response =>{ 
+        if (!response.ok) {
+           throw new console.error();
+        }
+        return response.json()
+    })
+    .then(produits=>{
+        document.getElementById('loader').style.display='none';
+        if (search_bar.values!=='') {
+            const prod_cherche=produits.filter(nom_cherche=>{
+                mot_saisi= search_bar.value.toLowerCase();
+                return nom_cherche.nom_produit.toLowerCase().includes(mot_saisi.toLowerCase())
+            });
+            nom_prods= prod_cherche.map(p=>{
+                list_prod_filtre= document.createElement('ul');
+                container_prod_cherche.appendChild(list_prod_filtre);
+                prod_filtre=`<li>
+                                <img src="${p.url_image}" alt="">
+                                <h1>${p.nom_produit}  </h1><h2>${'\t'} ${p.prix_produit}$</h2>
+                            </li>`;
+                            
+                list_prod_filtre.innerHTML += prod_filtre;
+                
+            });
+        }
+    })
+}
+
+//Fonction qui montre le chargement(loader)
+function load_prod(container_prod_cherche){
+    loader=`<div id="loader" class="spinner"></div>`;
+    container_prod_cherche.innerHTML=loader;    
+}
 
 
     //Méthode qui ajoute un produit
