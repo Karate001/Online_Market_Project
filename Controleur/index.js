@@ -216,26 +216,38 @@ function filtre_list_produit() {
                 mot_saisi= search_bar.value.toLowerCase();
                 return nom_cherche.nom_produit.toLowerCase().includes(mot_saisi.toLowerCase())
             });
+            list_prod_filtre= document.createElement('ul');
+            container_prod_cherche.appendChild(list_prod_filtre);
             nom_prods= prod_cherche.map(p=>{
-                list_prod_filtre= document.createElement('ul');
-                container_prod_cherche.appendChild(list_prod_filtre);
                 prod_filtre=`<li>
                                 <img src="${p.url_image}" alt="">
-                                <h1>${p.nom_produit}  </h1><h2>${'\t'} ${p.prix_produit}$</h2>
+                                <h1>${p.nom_produit}  </h1><h2><br>${p.prix_produit}$</h2>
+                                <i class="fa fa-plus" style="color:#ffff;" aria-hidden="true"></i>
                             </li>`;
                             
-                list_prod_filtre.innerHTML += prod_filtre;
-                
+                list_prod_filtre.innerHTML += prod_filtre;                
             });
+            console.log(list_prod_filtre.querySelectorAll('li'))
         }
     })
 }
-
+search_bar.addEventListener('click',afficher_conteneur_recherche)
 //Fonction qui montre le chargement(loader)
 function load_prod(container_prod_cherche){
     loader=`<div id="loader" class="spinner"></div>`;
     container_prod_cherche.innerHTML=loader;    
 }
+
+//Méthode qui affiche et supprime le contenreur des recherches
+function afficher_conteneur_recherche() {
+    if (container_prod_cherche.style.display=='block') {
+        container_prod_cherche.style.display='none';
+    }else{
+        container_prod_cherche.style.display='block';        
+    }
+} 
+//Méthode qui permet de mener vers la page info produit en cliquant sur le produit 
+//dans la barre de recherche et ajouter au panier en cliquant sur +
 
 
     //Méthode qui ajoute un produit
