@@ -227,7 +227,12 @@ function filtre_list_produit() {
                             
                 list_prod_filtre.innerHTML += prod_filtre;                
             });
-            console.log(list_prod_filtre.querySelectorAll('li'))
+            list_prod_filtre.querySelectorAll('li').forEach(e => {
+                e.addEventListener('click',()=>{
+                    window.location.href= `page_info_produit.html?nom=${e.querySelector('h1').innerText}&prix=${e.querySelector('h2').innerText}&url_image=${e.querySelector('img').src}`;
+
+                })
+            });
         }
     })
 }
