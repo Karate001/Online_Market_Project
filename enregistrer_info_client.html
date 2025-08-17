@@ -9,25 +9,38 @@
 <body>
     <div class="connexion-container">
         <h2>Remplissez ce formulaire pour confirmer votre commande</h2>
-        <form action="">
-            <h1>Contact</h1>
-            <input type="email" id="Email" placeholder="Indiquer votre Adresse email" required>
-            <input type="text" id="nom_client" placeholder="Indiquer votre nom et prénom" required>
-            <input type="tel" id="num_tel" placeholder="Indiquer votre numéro de téléphone" required>
-            <input type="tel" id="num_whatsapp" placeholder="Indiquer votre numéro WhatsApp" required>
-            <input type="text" id="adresse" placeholder="Indiquer votre adresse" required>
-            <input type="text" id="reference" placeholder="Indiquer votre reférence, numéro d'appartement,..." required>     
-            <input type="submit" id="btn_confirmer_commande" value="Confirmer la commande">
-        </form>
-        <div>
-            <h1>Paiement</h1>
-            <p>A la livraison</p>
-        </div>
-        <div>
-            <h1>Adresse de facturation</h1>
-            <p>Identique à l'adresse de livraison</p>
-        </div>
-    </div>
-    div
+        <section>
+            <form action="">
+                <h1>Contact</h1>
+                <input type="email" id="Email" placeholder="Indiquer votre Adresse email" required>
+                <input type="text" id="nom_client" placeholder="Indiquer votre nom et prénom" required>
+                <input type="tel" id="num_tel" placeholder="Indiquer votre numéro de téléphone" required>
+                <input type="tel" id="num_whatsapp" placeholder="Indiquer votre numéro WhatsApp" required>
+                <input type="text" id="adresse" placeholder="Indiquer votre adresse" required>
+                <input type="text" id="reference" placeholder="Indiquer votre reférence, numéro d'appartement,..." required>     
+                <div class="form_paeiment">
+                    <h1>Paiement</h1>
+                    <p>A la livraison</p>
+                </div>
+                <div>
+                    <h1>Adresse de facturation</h1>
+                    <p>Identique à l'adresse de livraison</p>
+                </div>
+            </form>
+            <div id="container_prod_prixtotal">
+                <h1>Resumer de la commande</h1>
+                <div id="container_produit">
+                    <!-- Les produits seront insérés ici dynamiquement -->
+                </div>
+                <div id="container_prix_total">
+                    <p>Total des produits : <span id="total_produit">0</span> $</p>
+                    <p>Frais de livraison : <span id="frais_livraison">0</span> $</p>
+                    <p>Total à payer : <span id="total_payer">0</span> $</p>
+                </div>
+            </div>
+        </section>
+        <input type="submit" id="btn_confirmer_commande" value="Confirmer la commande">    
+    </div>   
 </body>
+<script src="Controleur/enregistrer_info_client.js"></script>
 </html>

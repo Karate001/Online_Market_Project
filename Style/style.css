@@ -955,14 +955,15 @@ footer{
     margin-right: 25%;
     margin-top: 4px;
     margin-bottom: 4px;
+    box-shadow: 0 2px 10px rgb(134, 134, 201);border: none;
 }
 #container_panier ul li{
     margin-left: 2.5%;
     margin-right:2.5% ;
     display: flex;
-    border: solid rgb(134, 134, 201) 3px;
     margin-top: 3px;
     justify-content: space-between;
+    box-shadow: 0 2px 10px rgb(134, 134, 201);
 }
 #container_panier ul li p{
     font-weight: 600;
@@ -975,12 +976,14 @@ footer{
     width: 20%;
 }
 #container_panier ul li div button{
-    width: 30%;
+    width: 30%;box-shadow: 0 2px 10px rgb(134, 134, 201);border: none;
 }
 #container_panier ul li button{
     background-color: rgb(134, 134, 201);
     cursor: pointer;
     width: 5%;
+    box-shadow: 0 2px 10px rgb(134, 134, 201);border: none;
+    margin: 0.8%;
 }
 
 #container_panier ul li img{

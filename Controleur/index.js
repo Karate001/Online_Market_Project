@@ -77,6 +77,8 @@ document.addEventListener('DOMContentLoaded',
         });   
     });
 
+    charger_panier;
+
 }
 
 }
@@ -110,7 +112,7 @@ function ajout_prod_panier(event){
     
     for (let i = 0; i < panier.length; i++) {
         const element = panier[i];
-        if (img_prod==panier[i].querySelector('img').src) {
+        if (nom_prod==panier[i].nom) {
             return;
         }   
     }
@@ -125,13 +127,17 @@ function ajout_prod_panier(event){
                             <button style="color:rgb(134, 134, 201);"><i class="fa fa-chevron-right" aria-hidden="true"></i></button></div>
                          <button id="delete_prod_button"><i class="fa fa-trash" aria-hidden="true"></i></button>`;
         
-    panier.push(prod_li);
+    
+    prod_ajouter= {
+        nom: nom_prod,img_url: img_prod,prix: prix_prod
+    };
+    panier.push(prod_ajouter);
+    localStorage.setItem('panier', JSON.stringify(panier));
 
     container_panier.appendChild(prod_li);
     compteur_panier++;
     element_compteur.setAttribute("data-compteur",compteur_panier);
-    localStorage.setItem("panier", JSON.stringify(panier));
-    localStorage.setItem("compteur_panier",compteur_panier);
+    
 
     //Gérer la suppression de produit du panier
     btn_delete_prod= prod_li.querySelector('#delete_prod_button');
@@ -140,6 +146,39 @@ function ajout_prod_panier(event){
      //Le bouton commander
         creer_btn_commander_consulter();
 
+}
+
+//Méthode qui charge les éléments du panier
+document.addEventListener('DOMContentLoaded',charger_panier);
+function charger_panier() {
+    panier = JSON.parse(localStorage.getItem('panier')) || [];
+    if (panier.length === 0) {
+        document.querySelector('#container_panier ul').innerHTML = '<li>Votre panier est vide</li>';
+        return;
+    }else {
+        panier.forEach(prod => {
+            prod_li= document.createElement('li');
+            prod_li.innerHTML += `
+                    <img src="${prod.img_url}" alt="">
+                    <p>${prod.nom}  <br> ${prod.prix}</p>
+                    <div><button style="color:rgb(134, 134, 201);"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                    <span>1</span>
+                    <button style="color:rgb(134, 134, 201);"><i class="fa fa-chevron-right" aria-hidden="true"></i></button></div>
+                    <button id="delete_prod_button"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                `;
+             document.querySelector('#container_panier ul').appendChild(prod_li);
+             //Gérer la suppression de produit du panier
+            btn_delete_prod= prod_li.querySelector('#delete_prod_button');
+            btn_delete_prod.addEventListener('click',effacer_prod_panier );
+
+            compteur_panier++;
+            element_compteur.setAttribute("data-compteur",compteur_panier);
+        });        
+        
+        //Le bouton commander
+        creer_btn_commander_consulter();
+
+    }  
 }
 
 //fonction qui affiche le panier ou le rend invisible
@@ -160,10 +199,17 @@ function afficher_panier(){
 
 //Fonction pour suppprimer produit
 function effacer_prod_panier(event) {
-    event.preventDefault;
+   event.preventDefault();
     prod_a_supprimer= event.target.closest("li");
-    container_panier.removeChild(prod_a_supprimer);
-    panier.pop(prod_a_supprimer);
+    for (let i = 0; i < panier.length; i++) {
+        const element = panier[i];
+        if (prod_a_supprimer.querySelector("img").src==element.img_url) {
+            panier.splice(i, 1);
+            localStorage.setItem('panier', JSON.stringify(panier));
+            break;
+        }   
+    }
+    document.querySelector('#container_panier ul').removeChild(prod_a_supprimer);
     compteur_panier--;
     element_compteur.setAttribute("data-compteur",compteur_panier);
 
